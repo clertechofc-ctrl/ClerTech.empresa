@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Serralheria Eloyn | Serviços Artísticos e Industriais</title>
+  <meta name="description" content="Serralheria Eloyn em Campinas. Serviços artísticos e industriais, estruturas metálicas, grades, portões e soluções sob medida." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#080808;
+      --bg2:#111111;
+      --card:rgba(255,255,255,.075);
+      --line:rgba(255,255,255,.11);
+      --text:#f7f7f7;
+      --muted:#c9c9c9;
+      --gold:#f2c94c;
+      --gold2:#ffdf70;
+      --steel:#9ca3af;
+      --green:#4ade80;
+      --orange:#f59e0b;
+      --wa:#25d366;
+      --wa2:#128c3d;
+      --shadow:0 22px 60px rgba(0,0,0,.38);
+      --safe-bottom:env(safe-area-inset-bottom,0px);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+
+    body{
+      font-family:"Inter",sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 0% 0%,rgba(242,201,76,.13),transparent 30%),
+        radial-gradient(circle at 100% 0%,rgba(156,163,175,.10),transparent 26%),
+        linear-gradient(180deg,#060606 0%,#111 50%,#070707 100%);
+      overflow-x:hidden;
+      padding-bottom:92px;
+    }
+
+    a{text-decoration:none;color:inherit}
+    img,video{display:block;max-width:100%}
+    button,input,select,textarea{font-family:inherit}
+
+    .container{
+      width:min(1160px,calc(100% - 24px));
+      margin:0 auto;
+    }
+
+    .section{padding:56px 0}
+
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      width:max-content;
+      max-width:100%;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(242,201,76,.12);
+      border:1px solid rgba(242,201,76,.22);
+      color:#fff3bf;
+      font-size:10px;
+      font-weight:900;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      backdrop-filter:blur(12px);
+    }
+
+    .tag::before{
+      content:"";
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:var(--gold);
+      box-shadow:0 0 0 6px rgba(242,201,76,.12);
+      flex:0 0 8px;
+    }
+
+    .section-head{
+      display:grid;
+      gap:12px;
+      margin-bottom:22px;
+    }
+
+    .section-head.center{
+      text-align:center;
+      justify-items:center;
+    }
+
+    .section-title{
+      font-size:clamp(28px,8vw,52px);
+      line-height:1.05;
+      letter-spacing:-.05em;
+      font-weight:950;
+      color:#fff;
+    }
+
+    .section-title span{
+      color:var(--gold2);
+    }
+
+    .section-sub{
+      color:var(--muted);
+      font-size:14.5px;
+      line-height:1.72;
+      max-width:760px;
+    }
+
+    .btn{
+      position:relative;
+      overflow:hidden;
+      border:none;
+      cursor:pointer;
+      width:100%;
+      min-height:52px;
+      border-radius:999px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:14px 18px;
+      font-size:13px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+      transition:.24s ease;
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    .btn:active{transform:scale(.98)}
+    .btn:hover{transform:translateY(-2px)}
+
+    .btn::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(120deg,transparent,rgba(255,255,255,.28),transparent);
+      transform:translateX(-130%);
+      transition:.65s ease;
+    }
+
+    .btn:hover::before{transform:translateX(130%)}
+
+    .btn-gold{
+      background:linear-gradient(135deg,var(--gold),var(--gold2));
+      color:#121212;
+      box-shadow:0 16px 34px rgba(242,201,76,.22);
+    }
+
+    .btn-wa{
+      background:linear-gradient(135deg,var(--wa),var(--wa2));
+      color:#fff;
+      box-shadow:0 16px 34px rgba(37,211,102,.22);
+    }
+
+    .btn-dark{
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.13);
+      backdrop-filter:blur(12px);
+    }
+
+    .header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(8,8,8,.82);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      backdrop-filter:blur(18px);
+    }
+
+    .nav{
+      min-height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+
+    .brand-mark{
+      width:56px;
+      height:56px;
+      border-radius:18px;
+      position:relative;
+      display:grid;
+      place-items:center;
+      background:
+        linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.04)),
+        linear-gradient(135deg,#101010,#1d1d1d);
+      border:1px solid rgba(242,201,76,.24);
+      box-shadow:0 12px 30px rgba(0,0,0,.30);
+      overflow:hidden;
+      flex:0 0 56px;
+      animation:floatLogo 3.3s ease-in-out infinite;
+    }
+
+    .brand-mark::before{
+      content:"";
+      position:absolute;
+      width:96px;
+      height:26px;
+      background:linear-gradient(90deg,transparent,var(--gold),transparent);
+      transform:rotate(-38deg);
+      opacity:.28;
+    }
+
+    .brand-mark strong{
+      position:relative;
+      z-index:1;
+      font-size:21px;
+      font-weight:950;
+      letter-spacing:-.08em;
+      color:#fff;
+      text-shadow:2px 2px 0 rgba(242,201,76,.34);
+    }
+
+    .brand-text{
+      display:grid;
+      gap:3px;
+      line-height:1;
+      min-width:0;
+    }
+
+    .brand-text strong{
+      font-size:17px;
+      font-weight:950;
+      color:#fff;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width:190px;
+    }
+
+    .brand-text small{
+      font-size:9px;
+      font-weight:900;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:#cfcfcf;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width:190px;
+    }
+
+    .mobile-toggle{
+      width:44px;
+      height:44px;
+      border:none;
+      border-radius:14px;
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      font-size:24px;
+      cursor:pointer;
+      flex:0 0 44px;
+    }
+
+    .menu{
+      position:absolute;
+      top:74px;
+      left:12px;
+      right:12px;
+      display:none;
+      flex-direction:column;
+      gap:6px;
+      padding:12px;
+      border-radius:20px;
+      background:#111;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:var(--shadow);
+    }
+
+    .menu.open{display:flex}
+
+    .menu a{
+      padding:13px 14px;
+      border-radius:14px;
+      background:rgba(255,255,255,.05);
+      font-size:14px;
+      font-weight:850;
+    }
+
+    .hero{
+      position:relative;
+      min-height:calc(100svh - 74px);
+      display:flex;
+      align-items:flex-end;
+      overflow:hidden;
+      background:#080808;
+    }
+
+    .hero-video{
+      position:absolute;
+      inset:0;
+      overflow:hidden;
+      z-index:0;
+    }
+
+    .hero-video video{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      filter:brightness(.42) contrast(1.08) saturate(1.05);
+    }
+
+    .hero-video::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(180deg,rgba(8,8,8,.28),rgba(8,8,8,.82) 58%,rgba(8,8,8,.98)),
+        linear-gradient(90deg,rgba(8,8,8,.96),rgba(8,8,8,.46),rgba(8,8,8,.88));
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:1;
+      background:
+        linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+      background-size:38px 38px;
+      opacity:.24;
+      pointer-events:none;
+      mask-image:linear-gradient(to bottom,black,transparent 90%);
+    }
+
+    .hero-inner{
+      position:relative;
+      z-index:2;
+      width:100%;
+      padding:36px 0 28px;
+    }
+
+    .hero-grid{
+      display:grid;
+      gap:18px;
+    }
+
+    .hero-content{
+      display:grid;
+      gap:16px;
+      max-width:720px;
+    }
+
+    .interactive-logo{
+      width:124px;
+      height:124px;
+      border-radius:34px;
+      padding:3px;
+      position:relative;
+      overflow:hidden;
+      background:linear-gradient(135deg,var(--gold),#fff,var(--steel),var(--gold));
+      box-shadow:0 18px 46px rgba(0,0,0,.34);
+    }
+
+    .interactive-logo::before{
+      content:"";
+      position:absolute;
+      inset:3px;
+      border-radius:31px;
+      background:
+        linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.04)),
+        #101010;
+      z-index:0;
+    }
+
+    .interactive-logo::after{
+      content:"";
+      position:absolute;
+      width:160px;
+      height:34px;
+      background:linear-gradient(90deg,transparent,rgba(242,201,76,.72),transparent);
+      transform:rotate(-35deg);
+      animation:shine 3.4s ease-in-out infinite;
+      opacity:.65;
+      z-index:1;
+    }
+
+    .logo-inner{
+      position:relative;
+      z-index:2;
+      width:100%;
+      height:100%;
+      border-radius:31px;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding:10px;
+    }
+
+    .logo-inner b{
+      display:block;
+      font-size:44px;
+      line-height:.8;
+      letter-spacing:-.12em;
+      color:#fff;
+      text-shadow:
+        3px 3px 0 rgba(242,201,76,.42),
+        0 16px 24px rgba(0,0,0,.35);
+    }
+
+    .logo-inner span{
+      display:block;
+      margin-top:9px;
+      color:var(--gold2);
+      font-size:10px;
+      font-weight:950;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+
+    .hero h1{
+      font-size:clamp(38px,12vw,78px);
+      line-height:.96;
+      letter-spacing:-.055em;
+      font-weight:950;
+      color:#fff;
+      text-shadow:0 18px 44px rgba(0,0,0,.40);
+    }
+
+    .hero h1 span{
+      display:block;
+      color:var(--gold2);
+    }
+
+    .hero p{
+      color:#f1f1f1;
+      font-size:16px;
+      line-height:1.72;
+      max-width:620px;
+    }
+
+    .hero-pills{
+      display:flex;
+      gap:8px;
+      overflow-x:auto;
+      scrollbar-width:none;
+      padding-bottom:2px;
+    }
+
+    .hero-pills::-webkit-scrollbar{display:none}
+
+    .pill{
+      flex:0 0 auto;
+      padding:9px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.12);
+      color:#f6f6f6;
+      font-size:12px;
+      font-weight:900;
+      backdrop-filter:blur(10px);
+    }
+
+    .hero-actions{
+      display:grid;
+      gap:10px;
+      margin-top:4px;
+    }
+
+    .hero-card{
+      display:grid;
+      gap:10px;
+      padding:16px;
+      border-radius:24px;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      backdrop-filter:blur(14px);
+      box-shadow:0 14px 34px rgba(0,0,0,.20);
+    }
+
+    .hero-line{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      color:#f1f1f1;
+      font-size:13.5px;
+      line-height:1.6;
+      font-weight:760;
+    }
+
+    .hero-line b{color:#fff}
+
+    .featured-section{
+      background:
+        radial-gradient(circle at 10% 0%,rgba(242,201,76,.10),transparent 25%),
+        radial-gradient(circle at 100% 0%,rgba(156,163,175,.10),transparent 24%),
+        linear-gradient(180deg,#0c0c0c 0%,#141414 100%);
+      border-top:1px solid rgba(255,255,255,.06);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+
+    .featured-grid{
+      display:grid;
+      gap:18px;
+    }
+
+    .featured-video-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:26px;
+      background:#000;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:var(--shadow);
+    }
+
+    .featured-video-card::before{
+      content:"Vídeo em destaque";
+      position:absolute;
+      top:12px;
+      left:12px;
+      z-index:3;
+      padding:8px 11px;
+      border-radius:999px;
+      background:rgba(0,0,0,.62);
+      border:1px solid rgba(255,255,255,.14);
+      color:#fff;
+      font-size:10px;
+      font-weight:950;
+      letter-spacing:.10em;
+      text-transform:uppercase;
+      backdrop-filter:blur(10px);
+    }
+
+    .featured-video-card video{
+      width:100%;
+      aspect-ratio:9/16;
+      object-fit:cover;
+      max-height:650px;
+      background:#000;
+    }
+
+    .featured-content{
+      display:grid;
+      gap:14px;
+      padding:20px;
+      border-radius:26px;
+      background:rgba(255,255,255,.065);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 14px 34px rgba(0,0,0,.20);
+    }
+
+    .featured-content h3{
+      font-size:clamp(24px,7vw,42px);
+      line-height:1.08;
+      letter-spacing:-.04em;
+      font-weight:950;
+      color:#fff;
+    }
+
+    .featured-content h3 span{
+      color:var(--gold2);
+    }
+
+    .featured-content p{
+      color:var(--muted);
+      font-size:14.5px;
+      line-height:1.76;
+    }
+
+    .check-list{
+      display:grid;
+      gap:10px;
+    }
+
+    .check-list li{
+      list-style:none;
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      color:#f1f1f1;
+      font-size:14px;
+      line-height:1.6;
+      font-weight:760;
+    }
+
+    .check-list li::before{
+      content:"✓";
+      width:21px;
+      height:21px;
+      flex:0 0 21px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg,var(--gold),var(--gold2));
+      color:#111;
+      font-size:12px;
+      font-weight:900;
+      margin-top:1px;
+    }
+
+    .work-top{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      margin-bottom:18px;
+    }
+
+    .slider-controls{
+      display:flex;
+      gap:10px;
+    }
+
+    .slider-btn{
+      width:46px;
+      height:46px;
+      border:none;
+      border-radius:50%;
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      color:#fff;
+      font-size:24px;
+      cursor:pointer;
+      box-shadow:0 12px 28px rgba(0,0,0,.20);
+    }
+
+    .work-slider{
+      display:grid;
+      grid-auto-flow:column;
+      grid-auto-columns:82%;
+      gap:14px;
+      overflow-x:auto;
+      scroll-behavior:smooth;
+      scroll-snap-type:x mandatory;
+      scrollbar-width:none;
+      padding:2px 2px 12px;
+    }
+
+    .work-slider::-webkit-scrollbar{display:none}
+
+    .work-card{
+      scroll-snap-align:start;
+      overflow:hidden;
+      border-radius:24px;
+      background:rgba(255,255,255,.065);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 16px 42px rgba(0,0,0,.20);
+    }
+
+    .work-card video{
+      width:100%;
+      aspect-ratio:9/16;
+      object-fit:cover;
+      background:#000;
+    }
+
+    .work-body{
+      padding:15px;
+      display:grid;
+      gap:7px;
+    }
+
+    .work-body strong{
+      color:var(--gold2);
+      font-size:15px;
+      font-weight:950;
+    }
+
+    .work-body span{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.6;
+    }
+
+    .swipe-note{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      color:#b7b7b7;
+      font-size:12px;
+      font-weight:850;
+      margin-top:4px;
+    }
+
+    .quote-grid{
+      display:grid;
+      gap:16px;
+    }
+
+    .quote-card,
+    .info-card{
+      padding:20px;
+      border-radius:24px;
+      background:rgba(255,255,255,.065);
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 16px 42px rgba(0,0,0,.20);
+      display:grid;
+      gap:14px;
+    }
+
+    .quote-card h3,
+    .info-card h3{
+      font-size:24px;
+      line-height:1.08;
+      letter-spacing:-.03em;
+      font-weight:950;
+      color:#fff;
+    }
+
+    .quote-card h3 span,
+    .info-card h3 span{
+      color:var(--gold2);
+    }
+
+    .quote-card p,
+    .info-card p{
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.72;
+    }
+
+    .form-grid{
+      display:grid;
+      gap:12px;
+    }
+
+    .field{
+      display:grid;
+      gap:7px;
+    }
+
+    .field label{
+      font-size:12px;
+      font-weight:850;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:#e5e5e5;
+    }
+
+    .field input,
+    .field select,
+    .field textarea{
+      width:100%;
+      padding:15px 14px;
+      border:none;
+      outline:none;
+      border-radius:16px;
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      border:1px solid rgba(255,255,255,.11);
+      font-size:14px;
+    }
+
+    .field textarea{
+      min-height:110px;
+      resize:vertical;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder{
+      color:#a8a8a8;
+    }
+
+    .contact-list{
+      display:grid;
+      gap:10px;
+    }
+
+    .contact-list li{
+      list-style:none;
+      display:flex;
+      gap:9px;
+      align-items:flex-start;
+      color:#efefef;
+      font-size:14px;
+      line-height:1.6;
+      font-weight:760;
+    }
+
+    .contact-list li::before{
+      content:"•";
+      color:var(--gold2);
+      font-size:24px;
+      line-height:1;
+      margin-top:-2px;
+    }
+
+    .footer{
+      padding:38px 0 94px;
+      background:#060606;
+    }
+
+    .footer-wrap{
+      border-top:1px solid rgba(255,255,255,.08);
+      padding-top:18px;
+      display:grid;
+      gap:8px;
+      color:#aaa;
+      font-size:12.5px;
+      text-align:center;
+    }
+
+    .bottom-bar{
+      position:fixed;
+      left:10px;
+      right:10px;
+      bottom:calc(10px + var(--safe-bottom));
+      z-index:1200;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:8px;
+      padding:8px;
+      border-radius:20px;
+      background:rgba(8,8,8,.86);
+      border:1px solid rgba(255,255,255,.10);
+      backdrop-filter:blur(16px);
+      box-shadow:0 16px 40px rgba(0,0,0,.30);
+    }
+
+    .bottom-bar .btn{
+      min-height:48px;
+      padding:12px 10px;
+      font-size:12px;
+    }
+
+    @keyframes floatLogo{
+      0%,100%{transform:translateY(0)}
+      50%{transform:translateY(-4px)}
+    }
+
+    @keyframes shine{
+      0%,100%{left:-130%;top:10%}
+      50%{left:65%;top:35%}
+    }
+
+    @media(min-width:720px){
+      body{padding-bottom:0}
+      .container{width:min(1180px,calc(100% - 36px))}
+      .section{padding:80px 0}
+      .btn{width:auto}
+      .hero{min-height:calc(100vh - 74px);align-items:center}
+      .hero-inner{padding:86px 0}
+      .hero-grid{grid-template-columns:1.06fr .94fr;align-items:center}
+      .interactive-logo{width:142px;height:142px}
+      .logo-inner b{font-size:54px}
+      .hero p{font-size:18px}
+      .hero-actions{display:flex;flex-wrap:wrap}
+      .featured-grid{grid-template-columns:.95fr 1.05fr;align-items:center;gap:26px}
+      .work-top{flex-direction:row;justify-content:space-between;align-items:flex-end}
+      .work-slider{grid-auto-columns:calc((100% - 28px)/3)}
+      .quote-grid{grid-template-columns:1.05fr .95fr}
+      .bottom-bar{display:none}
+      .footer-wrap{text-align:left}
+    }
+
+    @media(min-width:1020px){
+      .nav{min-height:82px}
+      .mobile-toggle{display:none}
+      .menu{
+        position:static;
+        display:flex;
+        flex-direction:row;
+        gap:22px;
+        padding:0;
+        background:transparent;
+        border:none;
+        box-shadow:none;
+      }
+      .menu a{
+        padding:0;
+        background:transparent;
+        font-size:14px;
+      }
+      .brand-mark{
+        width:60px;
+        height:60px;
+        flex-basis:60px;
+      }
+      .brand-text strong{
+        font-size:20px;
+        max-width:none;
+      }
+      .brand-text small{
+        max-width:none;
+      }
+      .work-slider{
+        grid-auto-columns:calc((100% - 42px)/4);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container nav">
+      <a href="#inicio" class="brand">
+        <div class="brand-mark">
+          <strong>SE</strong>
+        </div>
+
+        <div class="brand-text">
+          <strong>Serralheria Eloyn</strong>
+          <small>Artístico • Industrial</small>
+        </div>
+      </a>
+
+      <nav class="menu" id="menu">
+        <a href="#inicio">Início</a>
+        <a href="#destaque">Destaque</a>
+        <a href="#trabalhos">Trabalhos</a>
+        <a href="#orcamento">Orçamento</a>
+      </nav>
+
+      <button class="mobile-toggle" onclick="toggleMenu()" aria-label="Abrir menu">☰</button>
+    </div>
+  </header>
+
+  <main id="inicio">
+
+    <section class="hero">
+      <div class="hero-video">
+        <video autoplay muted loop playsinline preload="metadata">
+          <source src="assets/hero.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="container hero-inner">
+        <div class="hero-grid">
+          <div class="hero-content">
+            <div class="interactive-logo">
+              <div class="logo-inner">
+                <b>SE</b>
+                <span>Serralheria Eloyn</span>
+              </div>
+            </div>
+
+            <span class="tag">Serviços artísticos e industriais</span>
+
+            <h1>Serralheria <span>Eloyn</span></h1>
+
+            <p>
+              Serviços especializados em serralheria, estruturas metálicas, grades, portões e soluções sob medida com qualidade e satisfação garantida.
+            </p>
+
+            <div class="hero-pills">
+              <span class="pill">Portões</span>
+              <span class="pill">Grades</span>
+              <span class="pill">Estruturas</span>
+              <span class="pill">Solda</span>
+              <span class="pill">Projetos sob medida</span>
+            </div>
+
+            <div class="hero-actions">
+              <a class="btn btn-wa" href="#" onclick="sendPresetMessage('Hero', 'Olá, quero solicitar um orçamento de serralheria.')">
+                Chamar no WhatsApp
+              </a>
+
+              <a class="btn btn-gold" href="#orcamento">
+                Pedir orçamento
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <div class="hero-line">🏗️ <span><b>Serviços especializados</b> em serralheria</span></div>
+            <div class="hero-line">🔥 <span><b>Artístico e industrial</b> para diferentes projetos</span></div>
+            <div class="hero-line">📍 <span>Atendimento em <b>Campinas - SP</b></span></div>
+            <div class="hero-line">📲 <span>Falar com <b>Steve</b> pelo WhatsApp</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section featured-section" id="destaque">
+      <div class="container">
+        <div class="section-head center">
+          <span class="tag">Vídeo em destaque</span>
+
+          <h2 class="section-title">
+            Serralheria com <span>qualidade e garantia</span>
+          </h2>
+
+          <p class="section-sub">
+            Veja o vídeo em destaque e conheça melhor o estilo de trabalho da Serralheria Eloyn.
+          </p>
+        </div>
+
+        <div class="featured-grid">
+          <div class="featured-video-card">
+            <video controls playsinline preload="metadata">
+              <source src="assets/destaque.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="featured-content">
+            <h3>Projetos fortes, seguros e com <span>acabamento profissional</span></h3>
+
+            <p>
+              Trabalhos em metal para residências, comércios e projetos industriais, com foco em resistência, estética e solução sob medida.
+            </p>
+
+            <ul class="check-list">
+              <li>Serviços artísticos e industriais</li>
+              <li>Grades, portões e estruturas metálicas</li>
+              <li>Soluções sob medida para cada cliente</li>
+              <li>Orçamento direto pelo WhatsApp</li>
+            </ul>
+
+            <div class="hero-actions">
+              <a class="btn btn-gold" href="#trabalhos">Ver trabalhos</a>
+              <a class="btn btn-dark" href="#" onclick="sendPresetMessage('Vídeo destaque', 'Olá, vi o vídeo em destaque e quero um orçamento.')">
+                Solicitar agora
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="trabalhos">
+      <div class="container">
+        <div class="work-top">
+          <div class="section-head" style="margin-bottom:0;">
+            <span class="tag">Trabalhos feitos</span>
+
+            <h2 class="section-title">
+              Vídeos dos <span>serviços</span>
+            </h2>
+
+            <p class="section-sub">
+              Os vídeos passam automaticamente. No celular, arraste para o lado ou use as setas.
+            </p>
+          </div>
+
+          <div class="slider-controls">
+            <button class="slider-btn" onclick="moveSlider(-1)" aria-label="Voltar">‹</button>
+            <button class="slider-btn" onclick="moveSlider(1)" aria-label="Avançar">›</button>
+          </div>
+        </div>
+
+        <div class="work-slider" id="workSlider">
+          <article class="work-card">
+            <video controls playsinline preload="metadata">
+              <source src="assets/trabalho-1.mp4" type="video/mp4">
+            </video>
+            <div class="work-body">
+              <strong>Trabalho 01</strong>
+              <span>Serviço executado com foco em resistência e acabamento.</span>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <video controls playsinline preload="metadata">
+              <source src="assets/trabalho-2.mp4" type="video/mp4">
+            </video>
+            <div class="work-body">
+              <strong>Trabalho 02</strong>
+              <span>Projeto metálico sob medida para o cliente.</span>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <video controls playsinline preload="metadata">
+              <source src="assets/trabalho-3.mp4" type="video/mp4">
+            </video>
+            <div class="work-body">
+              <strong>Trabalho 03</strong>
+              <span>Execução profissional para uso residencial ou comercial.</span>
+            </div>
+          </article>
+
+          <article class="work-card">
+            <video controls playsinline preload="metadata">
+              <source src="assets/trabalho-4.mp4" type="video/mp4">
+            </video>
+            <div class="work-body">
+              <strong>Trabalho 04</strong>
+              <span>Detalhes em serralheria com acabamento limpo.</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="swipe-note">↔ Arraste para ver mais vídeos</div>
+      </div>
+    </section>
+
+    <section class="section" id="orcamento">
+      <div class="container quote-grid">
+        <div class="quote-card">
+          <span class="tag">Orçamento</span>
+
+          <h3>Peça seu <span>orçamento</span></h3>
+
+          <p>
+            Envie suas informações e abra uma conversa pronta no WhatsApp para falar com Steve.
+          </p>
+
+          <form class="form-grid" id="quoteForm">
+            <div class="field">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" placeholder="Seu nome" required>
+            </div>
+
+            <div class="field">
+              <label for="telefone">Telefone</label>
+              <input type="text" id="telefone" placeholder="Seu WhatsApp" required>
+            </div>
+
+            <div class="field">
+              <label for="servico">Serviço desejado</label>
+              <select id="servico" required>
+                <option value="">Selecione</option>
+                <option>Portão</option>
+                <option>Grade</option>
+                <option>Estrutura metálica</option>
+                <option>Serviço de solda</option>
+                <option>Projeto artístico</option>
+                <option>Outro serviço</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="mensagem">Detalhes</label>
+              <textarea id="mensagem" placeholder="Explique rapidamente o que você precisa"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-gold">
+              Enviar orçamento
+            </button>
+          </form>
+        </div>
+
+        <div class="info-card">
+          <span class="tag">Contato</span>
+
+          <h3>Fale com <span>Steve</span></h3>
+
+          <p>
+            Serralheria Eloyn — serviços especializados, artísticos e industriais em Campinas.
+          </p>
+
+          <ul class="contact-list">
+            <li>WhatsApp: (19) 98818-6993</li>
+            <li>Email: serralheriaeloyn@gmail.com</li>
+            <li>Rua Barbará Heliodora, 580 - Campinas - SP</li>
+            <li>Satisfação garantida e atendimento direto</li>
+          </ul>
+
+          <a class="btn btn-wa" href="#" onclick="sendPresetMessage('Contato rápido', 'Olá, quero falar com Steve sobre um orçamento de serralheria.')">
+            Chamar no WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-wrap">
+        <p>© 2026 Serralheria Eloyn</p>
+        <p>Site criado para apresentação profissional e captação de clientes.</p>
+      </div>
+    </footer>
+
+  </main>
+
+  <div class="bottom-bar">
+    <a class="btn btn-wa" href="#" onclick="sendPresetMessage('Barra fixa mobile', 'Olá, quero solicitar um orçamento de serralheria.')">
+      WhatsApp
+    </a>
+
+    <a class="btn btn-gold" href="#orcamento">
+      Orçamento
+    </a>
+  </div>
+
+  <script>
+    const WHATSAPP_NUMBER = "5519988186993";
+
+    function toggleMenu(){
+      document.getElementById("menu").classList.toggle("open");
+    }
+
+    document.querySelectorAll(".menu a").forEach(link => {
+      link.addEventListener("click", () => {
+        document.getElementById("menu").classList.remove("open");
+      });
+    });
+
+    function sendPresetMessage(origem, interesse){
+      const text = `Olá, vim pelo site da Serralheria Eloyn.\n\nOrigem: ${origem}\nInteresse: ${interesse}`;
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank");
+    }
+
+    const form = document.getElementById("quoteForm");
+
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+
+      const nome = document.getElementById("nome").value.trim();
+      const telefone = document.getElementById("telefone").value.trim();
+      const servico = document.getElementById("servico").value.trim();
+      const mensagem = document.getElementById("mensagem").value.trim();
+
+      const text = `Olá, vim pelo site da Serralheria Eloyn e quero um orçamento.\n\nNome: ${nome}\nTelefone: ${telefone}\nServiço: ${servico}\nDetalhes: ${mensagem || "Não informado"}`;
+
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank");
+    });
+
+    const slider = document.getElementById("workSlider");
+    let autoSlide;
+
+    function moveSlider(direction){
+      const amount = Math.min(slider.clientWidth * 0.85, 420);
+      slider.scrollBy({
+        left: amount * direction,
+        behavior:"smooth"
+      });
+    }
+
+    function startAutoSlide(){
+      stopAutoSlide();
+
+      autoSlide = setInterval(() => {
+        if(!slider) return;
+
+        slider.scrollLeft += 1.2;
+
+        if(slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 2){
+          slider.scrollLeft = 0;
+        }
+      }, 18);
+    }
+
+    function stopAutoSlide(){
+      clearInterval(autoSlide);
+    }
+
+    if(slider){
+      startAutoSlide();
+      slider.addEventListener("mouseenter", stopAutoSlide);
+      slider.addEventListener("mouseleave", startAutoSlide);
+      slider.addEventListener("touchstart", stopAutoSlide, { passive:true });
+      slider.addEventListener("touchend", startAutoSlide);
+    }
+  </script>
+
+</body>
+</html>
